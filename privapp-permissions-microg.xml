@@ -18,6 +18,7 @@
 
     <privapp-permissions package="com.google.android.gms">
         <permission name="android.permission.INSTALL_LOCATION_PROVIDER"/>
+        <permission name="android.permission.BLUETOOTH" />
     </privapp-permissions>
 
 </permissions>
