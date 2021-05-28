@@ -5,20 +5,22 @@ LOCAL_MODULE := GmsCore
 LOCAL_SRC_FILES := GmsCore/GmsCore.apk
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_MODULE_CLASS := APPS
-LOCAL_REQUIRED_MODULES := privapp-permissions-microg.xml default-permissions-microg.xml whitelist-microg.xml
+LOCAL_REQUIRED_MODULES := privapp-permissions-microg.xml default-permissions-microg.xml whitelist-microg.xml npem
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := FakeStore
 LOCAL_SRC_FILES := FakeStore/FakeStore.apk
 LOCAL_CERTIFICATE := $(DEFAULT_SYSTEM_DEV_CERTIFICATE)
+LOCAL_PRIVILEGED_MODULE := true
 LOCAL_MODULE_CLASS := APPS
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := PatchPhonesky
 LOCAL_SRC_FILES := PatchPhonesky/PatchPhonesky.apk
-LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_CERTIFICATE := $(DEFAULT_SYSTEM_DEV_CERTIFICATE)
 LOCAL_MODULE_CLASS := APPS
 LOCAL_REQUIRED_MODULES := privapp-permissions-phonesky.xml
 include $(BUILD_PREBUILT)
@@ -131,7 +133,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := privapp-permissions-auroraservices.xml
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions.xml
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
@@ -139,6 +141,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := privapp-permissions-phonesky.xml
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions.xml
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
