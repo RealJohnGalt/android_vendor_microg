@@ -16,6 +16,14 @@ LOCAL_MODULE_CLASS := APPS
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := PatchPhonesky
+LOCAL_SRC_FILES := PatchPhonesky/PatchPhonesky.apk
+LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_MODULE_CLASS := APPS
+LOCAL_REQUIRED_MODULES := privapp-permissions-phonesky.xml
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE := MicroGGSFProxy
 LOCAL_SRC_FILES := MicroGGSFProxy/MicroGGSFProxy.apk
 LOCAL_CERTIFICATE := PRESIGNED
@@ -121,6 +129,14 @@ include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := privapp-permissions-auroraservices.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions.xml
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := privapp-permissions-phonesky.xml
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions.xml
