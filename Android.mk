@@ -33,6 +33,31 @@ LOCAL_MODULE_CLASS := APPS
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := GoogleCalendarSyncAdapter
+LOCAL_SRC_FILES := CalendarSyncAdapter/GoogleCalendarSyncAdapter.apk
+LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_MODULE_CLASS := APPS
+LOCAL_REQUIRED_MODULES := GoogleBackupTransport
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := GoogleContactsSyncAdapter
+LOCAL_SRC_FILES := ContactsSyncAdapter/GoogleContactsSyncAdapter.apk
+LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_MODULE_CLASS := APPS
+LOCAL_REQUIRED_MODULES := GoogleBackupTransport
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := GoogleBackupTransport
+LOCAL_SRC_FILES := BackupTransport/GoogleBackupTransport.apk
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_MODULE_CLASS := APPS
+LOCAL_REQUIRED_MODULES := privapp-permissions-gsync.xml privapp-permissions-backuptransport.xml
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE := AuroraStore
 LOCAL_SRC_FILES := AuroraStore/AuroraStore.apk
 LOCAL_CERTIFICATE := PRESIGNED
@@ -139,6 +164,22 @@ include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := privapp-permissions-phonesky.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := privapp-permissions-backuptransport.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := privapp-permissions-gsync.xml
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
